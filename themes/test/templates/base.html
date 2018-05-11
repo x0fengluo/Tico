@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-hans">
+<head>
+	<meta charset="UTF-8">
+	<title>{% if title %}{{ title }}{% else %}首页{% endif %}</title>
+
+	{% block head %}
+	<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../static/images/favicon.ico}" type="image/x-icon">
+	<link rel="stylesheet" href="../static/css/blog.css">
+	{% endblock %}
+</head>
+<body>
+	<div id="header">
+		<div class="header-container">
+			<div class="header-nav">
+
+				<div class="nav float-right">
+					<a href="/">首页</a>
+					<a href="/categories">分类</a>
+					<a href="/tags">标签</a>
+					<a href="/page/about">关于</a>
+				</div>
+			</div>
+
+			<div class="header-wrapper">
+				<div class="header-content">
+					<h1 class="header-title">
+						{% block header_title %}
+						{% endblock %}
+					</h1>
+					{% block data %}{% endblock %}
+					<div class="underline"></div>
+					<p class="header-subtitle">
+						{% block header_subtitle %}
+						{% endblock %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="main">
+		<div class="main-container">
+			{% block content %}
+        	{% endblock %}
+		</div>
+	</div>
+
+	<div id="footer">
+		<div class="footer-container">
+			<p>
+
+            {% if footer_title %}{{ footer_title }}{% endif %}
+
+			</p>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
